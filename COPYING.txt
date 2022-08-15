@@ -1,0 +1,12 @@
+
+; XDMA is free software.   You can redistribute and/or modify it, under
+; the terms of the GNU General Public License (hereafter called GPL) as
+; published by the Free Software Foundation, either version 2 of GPL or
+; any later versions, at your option.   XDMA is distributed in the hope
+; that it will be useful, but WITHOUT ANY WARRANTY and without even the
+; implied warranties of MERCHANTABILITY nor of FITNESS FOR A PARTICULAR
+; PURPOSE!   See the GPL for details.   You should have received a copy
+; of the GPL with your XDMA files.   If not, write to the Free Software
+; Foundation Inc., 59 Temple Place Ste. 330, Boston, MA 02111-1307 USA.
+; http://www.gnu.org/licenses/
+
