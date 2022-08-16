@@ -399,6 +399,9 @@ DevAdr	mov	[bx+IDEAd-@],di ;Set current IDE & PCI address bytes.
 	test	dh,0			   ;Overlap output request?
 @Ovlp1	equ	$-1			   ;(012h if overlap enabled).
 	jnz	BufIO			   ;Yes, do buffered output.
+        mov es,bx
+        test byte [es:47bh],20h
+        jz novdslock
 	or	dword [bx+IOAdr-@],byte -1 ;Invalidate VDS address.
 	mov	ax,08103h		   ;VDS "lock" user buffer.
 	mov	dx,0001Ch	; no automatic remap, check 64 kB crossing
@@ -413,6 +416,7 @@ vdslock_ok:
 	mov	ax,[bx+IOAdr-@]		   ;Get lower VDS address.
 	cmp	dword [bx+IOAdr-@],byte -1 ;Is VDS address valid?
 	jb	SetVLF			   ;Yes, set VDS "lock" flag.
+novdslock:
 	mov	ax,16		;No VDS -- get 20-bit buffer segment.
 	mul	word [bx+VDSSg-@]
 	add	ax,[bx+VDSOf-@]	;Add in buffer offset value.
